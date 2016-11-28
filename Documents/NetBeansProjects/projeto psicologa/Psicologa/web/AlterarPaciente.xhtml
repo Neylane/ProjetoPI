@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menu.xhtml"/>
+        <h:form id="formulario">
+            <p:messages/>
+            <p:fieldset legend="Alterar o Paciente">
+                <p:panelGrid columns="3">
+                   
+
+                    <p:panel><h:outputText value="Codigo"/><h:outputText value="*" style="color:red"/></p:panel>
+                    <p:inputText id="inCodigo" value="#{controladorPaciente.selectedPaciente.codigo}"
+                                 required="true" requiredMessage="O código é obrigatorio!"/>
+                    <p:message for="inCodigo" />
+                    
+                     <h:outputText value="Nome*"/>
+                     <p:inputText id="inNome" value="#{controladorPaciente.selectedPaciente.nome}" required="true"
+                                 requiredMessage="O nome é obrigatório"/>
+                    <p:message for="inNome"/>
+                    
+                     <h:outputText value="CPF*"/>
+                     <p:inputText id="inCpf" value="#{controladorPaciente.selectedPaciente.cpf}" required="true"
+                                 requiredMessage="O CPF é obrigatório"/>
+                    <p:message for="inCpf"/>
+                    
+                     <h:outputText value="RG*"/>
+                     <p:inputText id="inRg" value="#{controladorPaciente.selectedPaciente.rg}" required="true"
+                                 requiredMessage="O RG é obrigatório"/>
+                    <p:message for="inRg"/>
+                    
+                     <h:outputText value="Idade*"/>
+                     <p:inputText id="inIdade" value="#{controladorPaciente.selectedPaciente.idade}" required="true"
+                                 requiredMessage="A idade é obrigatório"/>
+                    <p:message for="inIdade"/>
+
+                    <h:outputText value="Endereço*"/>
+                    <p:inputText id="inEndereco" value="#{controladorPaciente.selectedPaciente.endereco}" required="true"
+                                 requiredMessage="O endereço é obrigatório"/>
+                    <p:message for="inEndereco"/>
+
+                    <h:outputText value="Telefone*"/>
+                    <p:inputText id="inTelefone" value="#{controladorPaciente.selectedPaciente.telefone}" required="true"
+                                 requiredMessage="O telefone é obrigatorio"/>
+                    <p:message for="inTelefone"/>
+
+                    <h:outputText value="Número de consultas"/>
+                    <p:inputText value="#{controladorPaciente.selectedPaciente.numConsultas}"/>
+                    <h:outputText/>
+
+                </p:panelGrid>
+                <p:commandButton value="alterar" 
+                                 oncomplete="PF('widDial').show()"/>
+                <p:commandButton value="cancelar" action="ApresentarPaciente.xhtml"/>
+
+            </p:fieldset>
+
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente Alterar o paciente ?"
+                             widgetVar="widDial">
+                <f:facet name="header">
+                    Atenção!!!
+                </f:facet>
+                <p:commandButton value="sim" action="#{controladorPaciente.alterar(controladorPaciente.selectedPaciente)}"
+                                 oncomplete="PF('widDial').hide()" update="formulario"
+                                 />
+                <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
+            </p:confirmDialog>
+
+        </h:form>
+    </h:body>
+</html>
+

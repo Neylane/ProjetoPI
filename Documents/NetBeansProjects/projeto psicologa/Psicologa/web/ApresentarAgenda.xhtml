@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:include src="menu.xhtml"/>
+        <p:growl id="gro" sticky="false" life="3000"/>
+
+        <h:form id="formulario">
+            <p:dataTable id="tabela" value="#{controladorAgenda.recuperarTodosAgenda()}" var="item"
+                         paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
+                         selection="#{controladorAgenda.selectedAgenda}">
+                <f:facet name="header">
+                    Agenda Cadastrada !!!
+                </f:facet>
+                <p:column headerText="Codigo" >
+                    <h:outputText value="#{item.codigo}"/>
+                </p:column>
+                <p:column headerText="Data da consulta" filterBy="#{item}">
+                    <h:outputText value="#{item.dataConsulta}"/>
+                </p:column>
+
+                <p:column headerText="Descrição" filterBy="#{item}">
+                    <h:outputText value="#{item.descricao}"/>
+                </p:column>
+
+                <p:column headerText="Horário">
+                    <h:outputText value="#{item.horario}"/>
+                </p:column>
+
+
+
+            </p:dataTable>
+            <p:commandButton value="Exibir dados" oncomplete="PF('widDial').show()"
+                             update="dial"/>
+            <p:commandButton value="Alterar" action="AlterarAgenda.xhtml"/>
+            <p:commandButton value="Excluir" oncomplete="PF('widDial2').show()"/>
+
+            <p:dialog id="dial" visible="false" resizable="false" modal="true"
+                      widgetVar="widDial">
+                <p:panelGrid columns="2">
+
+                    <h:outputText value="Código "/>
+                    <h:outputText value="#{controladorAgenda.selectedAgenda.codigo}"/>
+
+                    <h:outputText value="Data da consulta"/>
+                    <h:outputText value="#{controladorAgenda.selectedAgenda.dataConsulta}"/>
+
+                    <h:outputText value="Descrição"/>
+                    <h:outputText value="#{controladorAgenda.selectedAgenda.descricao}"/>
+
+                    <h:outputText value="Horário"/>
+                    <h:outputText value="#{controladorAgenda.selectedAgenda.horario}"/>
+
+
+
+                </p:panelGrid>
+                <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
+            </p:dialog>
+
+            <p:confirmDialog id="dial2" message="Deseja realmente excluir a agenda ? "
+                             widgetVar="widDial2">
+                <p:commandButton value="sim" action="#{controladorAgenda.deletar(
+                                                       controladorAgenda.selectedAgenda)}"
+                                 oncomplete="PF('widDial2').hide()" update="formulario"/>
+                <p:commandButton value="não" oncomplete="PF('widDial2').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+    </h:body>
+</html>
+
