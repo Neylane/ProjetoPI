@@ -1,0 +1,31 @@
+	
+	Projeto interdisciplinar
+1- Qual o problema que vocês irão resolver?
+
+Para se consultar no psicólogo, é preciso obter um cadastro do paciente, para então ser consultado por ele, 
+(Além de esperar bastante a vez de ser atendido). Outro problema é que nem sempre todos os pacientes tem tempo (ou por timidez) para se consultar pessoalmente o que dificulta mais ainda no atendimento.
+
+2- Porque ele é importante?
+
+Com o aplicativo tudo fica mais fácil até no atendimento, principalmente para aqueles que não têm tempo,
+Ou simplesmente quer se sentir a vontade para conversar com o profissional em sua casa.
+
+3- Quem são as pessoas que sofrem desse problema?
+
+São pessoas que procuram resolver seus problemas pessoais desde crianças entre 0 e 12 anos,   pré-adolescentes entre 13 e 17 anos ,
+ Adolescentes entre 18 e 25 anos e adultos até 65 anos ou a mais. Além de atender qualquer gênero (feminino, masculino, LGBT etc.).
+Sua classe social vem voltada para pessoas de baixa renda.
+
+4 - Quem são os concorrentes?
+
+- ZENKLUB: o principal objetivo da empresa é romper estigmas e barreiras no que diz respeito a serviços de saúde mental.
+ 	* a empresa facilita em caso de timidez ao atender pessoalmente ser consultado por vídeo chamado no computador de sua casa.
+	* o profissional deve ter um currículo de experiência.
+	* Uma boa prática clínica e deverá ter registros e licenças como fazer a consulta.
+	
+	- cria uma conta no ZENKLUB - www.zenklub.com.br
+	- escolhe seu psicólogo.
+	- pague pela sessão usando cartão de crédito.
+	- Escolhe o horário.
+	- No dia indicado, clique em “INICIAR SESSÃO".
+
