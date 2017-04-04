@@ -1,0 +1,11 @@
+						Estória de Usuário
+
+1- Como psicológo(a), gostaria de obter um cadastro da secretária ou recepcionista onde ela(e)  tivesse o acesso às informações do paciente.
+
+2- Como psicólogo(a), gostaria de ter uma agenda onde posso acompanhar os horários de cada paciente.
+
+3- Sendo um psicólogo(a), gostaria de testar a anamnese para meus pacientes.
+
+4- Sendo um psicólogo(a), gostaria de ser cadastrado(a) no sitema para atender aos meus pacientes.
+
+5- Como paciente, gostaria que no aplicativo obtesse um login para então ter acesso a minha próxima consulta.
