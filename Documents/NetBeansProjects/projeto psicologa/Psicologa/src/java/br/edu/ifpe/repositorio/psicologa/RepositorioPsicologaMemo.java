@@ -8,8 +8,6 @@ package br.edu.ifpe.repositorio.psicologa;
 import br.edu.ifpe.model.psicologa.Psicologa;
 import br.edu.ifpe.repositorio.interfaces.psicologa.RepositorioGenerico;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,7 @@ import java.util.List;
  *
  * @author kelly silva
  */
-public class RepositorioPsicologalMemo implements RepositorioGenerico<Psicologa, Integer> {
+public class RepositorioPsicologaMemo implements RepositorioGenerico<Psicologa, Integer> {
 
     private List<Psicologa> ListaControladorPsicologa = new ArrayList<>();
 
@@ -36,7 +34,7 @@ public class RepositorioPsicologalMemo implements RepositorioGenerico<Psicologa,
                 p.setEmail(t.getEmail());
                 p.setTelefone(t.getTelefone());
                 p.setCodLicenca(t.getCodLicenca());
-              
+
                 return;
             }
         }
@@ -62,6 +60,14 @@ public class RepositorioPsicologalMemo implements RepositorioGenerico<Psicologa,
     @Override
     public List<Psicologa> recuperarTodos() {
         return this.ListaControladorPsicologa;
+    }
+
+    public Psicologa recuperar(String login, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void excluir(Psicologa psicologa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

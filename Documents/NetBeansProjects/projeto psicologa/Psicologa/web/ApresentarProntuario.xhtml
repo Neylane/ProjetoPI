@@ -14,61 +14,58 @@
         <p:growl id="gro" sticky="false" life="3000"/>
 
         <h:form id="formulario">
-            <p:dataTable id="tabela" value="#{controladorAgenda.recuperarTodosAgenda()}" var="item"
-                         paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
-                         selection="#{controladorAgenda.selectedAgenda}">
+            <p:dataTable id="tabela" value="#{controladorProntuario.recuperarTodosProntuario()}" var="item"
+                         paginator="true" rows="5" rowKey="#{item.numProntuario}" selectionMode="single"
+                         selection="#{controladorProntuario.selectedProntuario}">
                 <f:facet name="header">
-                    Agenda Cadastrada !!!
+                    Prontuario Cadastrado !!!
                 </f:facet>
-                <p:column headerText="Codigo" >
-                    <h:outputText value="#{item.codigo}"/>
+                <p:column headerText="Prontuario" >
+                    <h:outputText value="#{item.numProntuario}"/>
                 </p:column>
-                <p:column headerText="Data da consulta" filterBy="#{item}">
+                <p:column headerText="Data da consulta" filterBy="#{item.dataConsulta}">
                     <h:outputText value="#{item.dataConsulta}"/>
                 </p:column>
-
-                <p:column headerText="Descrição" filterBy="#{item}">
+                <p:column headerText="Descrição">
                     <h:outputText value="#{item.descricao}"/>
                 </p:column>
-
                 <p:column headerText="Horário">
                     <h:outputText value="#{item.horario}"/>
                 </p:column>
 
 
 
+
             </p:dataTable>
             <p:commandButton value="Exibir dados" oncomplete="PF('widDial').show()"
                              update="dial"/>
-            <p:commandButton value="Alterar" action="AlterarAgenda.xhtml"/>
+            <p:commandButton value="Alterar" action="AlterarProntuario.xhtml"/>
             <p:commandButton value="Excluir" oncomplete="PF('widDial2').show()"/>
 
             <p:dialog id="dial" visible="false" resizable="false" modal="true"
                       widgetVar="widDial">
                 <p:panelGrid columns="2">
 
-                    <h:outputText value="Código "/>
-                    <h:outputText value="#{controladorAgenda.selectedAgenda.codigo}"/>
+                    <h:outputText value="Número do prontuario"/>
+                    <h:outputText value="#{controladorProntuario.selectedProntuario.numProntuario}"/>
 
                     <h:outputText value="Data da consulta"/>
-                    <h:outputText value="#{controladorAgenda.selectedAgenda.dataConsulta}"/>
+                    <h:outputText value="#{controladorProntuario.selectedProntuario.dataConsulta}"/>
 
                     <h:outputText value="Descrição"/>
-                    <h:outputText value="#{controladorAgenda.selectedAgenda.descricao}"/>
+                    <h:outputText value="#{controladorProntuario.selectedProntuario.descricao}"/>
 
                     <h:outputText value="Horário"/>
-                    <h:outputText value="#{controladorAgenda.selectedAgenda.horario}"/>
-
-
+                    <h:outputText value="#{controladorProntuario.selectedProntuario.horario}"/>
 
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
 
-            <p:confirmDialog id="dial2" message="Deseja realmente excluir a agenda ? "
+            <p:confirmDialog id="dial2" message="Deseja realmente excluir o prontuario ? "
                              widgetVar="widDial2">
-                <p:commandButton value="sim" action="#{controladorAgenda.deletar(
-                                                       controladorAgenda.selectedAgenda)}"
+                <p:commandButton value="sim" action="#{controladorProntuario.deletar(
+                                                       controladorProntuario.selectedProntuario)}"
                                  oncomplete="PF('widDial2').hide()" update="formulario"/>
                 <p:commandButton value="não" oncomplete="PF('widDial2').hide()"/>
             </p:confirmDialog>

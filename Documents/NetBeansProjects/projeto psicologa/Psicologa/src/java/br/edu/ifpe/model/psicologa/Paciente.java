@@ -13,29 +13,39 @@ import javax.persistence.Table;
 public class Paciente {
 
     @Id
-    private String cpf;
+    private int matricula;
     private String nome;
-    private int telefone;
-    private String endereco;
     private int idade;
-    private int rg;
-    private String numConsultas;
-    private int codigo;
+    private String genero;
+    private String endereco;
+    private int telefone;
+    private String religiao;
+    private String EstCivil;
+    private String profissao;
 
-    public Paciente(String nome, int telefone, String endereco,
-            int idade, int rg, String cpf, String numConsultas, int codigo) {
+    public Paciente(int matricula, String nome, int idade, String genero, String endereco, int telefone, String religiao, String EstCivil, String profissao) {
+        this.matricula = matricula;
         this.nome = nome;
-        this.telefone = telefone;
-        this.endereco = endereco;
         this.idade = idade;
-        this.rg = rg;
-        this.cpf = cpf;
-        this.numConsultas = numConsultas;
-        this.codigo = codigo;
+        this.genero = genero;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.religiao = religiao;
+        this.EstCivil = EstCivil;
+        this.profissao = profissao;
     }
 
     @Deprecated
     public Paciente() {
+
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
 
     public String getNome() {
@@ -46,12 +56,20 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public int getTelefone() {
-        return telefone;
+    public int getIdade() {
+        return idade;
     }
 
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getEndereco() {
@@ -62,50 +80,36 @@ public class Paciente {
         this.endereco = endereco;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getTelefone() {
+        return telefone;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
     }
 
-    public int getRg() {
-        return rg;
+    public String getReligiao() {
+        return religiao;
     }
 
-    public void setRg(int rg) {
-        this.rg = rg;
+    public void setReligiao(String religiao) {
+        this.religiao = religiao;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEstCivil() {
+        return EstCivil;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setEstCivil(String EstCivil) {
+        this.EstCivil = EstCivil;
     }
 
-    public String getNumConsultas() {
-        return numConsultas;
+    public String getProfissao() {
+        return profissao;
     }
 
-    public void setNumConsultas(String numConsultas) {
-        this.numConsultas = numConsultas;
-    }
-
-    /**
-     * @return the codigo
-     */
-    public int getCodigo() {
-        return codigo;
-    }
-
-    /**
-     * @param codigo the codigo to set
-     */
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
     }
 
 }

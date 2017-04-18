@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+    </h:head>
+    <h:body>
+        <h:form id="formulario">
+            <p:fieldset legend=" Sistema terapêutico!">
+                <p:panelGrid columns="1">
+                    <p:commandButton value="Entrar" oncomplete="PF('widDial2').show()"/>
+
+                </p:panelGrid>
+
+            </p:fieldset>
+
+            <p:dialog id="dialCadastro" resizable="false" visible="false" modal="true" widgetVar="widCadastro">
+                <f:facet name="header">
+                    Psicologa(o)
+                </f:facet>
+                <h:form>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Código de licença"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.codLicenca}"/>
+                        <h:outputText value="Nome"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.nome}"/>
+                        <h:outputText value="Cpf"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.cpf}"/>
+                        <h:outputText value="Email"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.email}"/>
+                        <h:outputText value="Telefone"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.telefone}"/>
+                        <h:outputText value="Login"/>
+                        <p:inputText value="#{controladorPsicologa.selectedPsicologa.login}"/>
+
+                        <h:outputText value="Senha"/>
+                        <p:inputText type="password" value="#{controladorPsicologa.selectedPsicologa.senha}"/>
+
+                    </p:panelGrid>
+                    <p:commandButton value="Cadastrar" action="#{controladorPsicologa.inserir(controladorPsicologa.selectedPsicologa)}" 
+                                     oncomplete="location.href='ApresentarPsicologa.xhtml'" update=""/>
+                    <p:commandButton value="Cancelar" oncomplete="PF('widCadastro').hide()"/>
+                </h:form>
+            </p:dialog>
+
+            <p:dialog id="dial2"  visible="false" resizable="false" modal="true" widgetVar="widDial2">
+                <f:facet name="header">
+                    Atenção!!!
+                </f:facet>
+                <p:panelGrid columns="2">
+                    <h:outputText value="Login"/>
+                    <p:inputText value="#{controladorPsicologa.selectedPsicologa.login}"/>
+
+                    <h:outputText value="Senha"/>
+                    <p:inputText type="password" value="#{controladorPsicologa.selectedPsicologa.senha}"/>
+                </p:panelGrid>
+
+                <p:commandButton value="Entrar" action="ApresentarPsicologa.xhtml"
+                                 oncomplete="PF('widDial2').hide()" update="formulario"/>
+                <p:commandButton value="Cadastrar" oncomplete="PF('widCadastro').show()"/>
+
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>
+

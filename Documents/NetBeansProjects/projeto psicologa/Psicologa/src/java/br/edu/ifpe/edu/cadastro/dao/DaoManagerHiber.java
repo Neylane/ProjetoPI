@@ -4,6 +4,7 @@
  */
 package br.edu.ifpe.edu.cadastro.dao;
 
+import java.io.IOException;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -139,9 +140,10 @@ public class DaoManagerHiber {
         //s.close();
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         SchemaExport se = new SchemaExport(new AnnotationConfiguration().configure());
         se.create(true, true);
+
     }
 
 }

@@ -14,30 +14,30 @@
             <p:messages/>
             <p:fieldset legend="Alterar o Paciente">
                 <p:panelGrid columns="3">
-                   
 
-                    <p:panel><h:outputText value="Codigo"/><h:outputText value="*" style="color:red"/></p:panel>
-                    <p:inputText id="inCodigo" value="#{controladorPaciente.selectedPaciente.codigo}"
-                                 required="true" requiredMessage="O código é obrigatorio!"/>
-                    <p:message for="inCodigo" />
-                    
-                     <h:outputText value="Nome*"/>
-                     <p:inputText id="inNome" value="#{controladorPaciente.selectedPaciente.nome}" required="true"
+
+                    <p:panel><h:outputText value="Matrícula"/><h:outputText value="*" style="color:red"/></p:panel>
+                    <p:inputText id="inMatricula" value="#{controladorPaciente.selectedPaciente.matricula}"
+                                 required="true" requiredMessage="A matrícula é obrigatoria!"/>
+                    <p:message for="inMatricula" />
+
+                    <h:outputText value="Nome*"/>
+                    <p:inputText id="inNome" value="#{controladorPaciente.selectedPaciente.nome}" required="true"
                                  requiredMessage="O nome é obrigatório"/>
                     <p:message for="inNome"/>
-                    
-                     <h:outputText value="CPF*"/>
-                     <p:inputText id="inCpf" value="#{controladorPaciente.selectedPaciente.cpf}" required="true"
-                                 requiredMessage="O CPF é obrigatório"/>
-                    <p:message for="inCpf"/>
-                    
-                     <h:outputText value="RG*"/>
-                     <p:inputText id="inRg" value="#{controladorPaciente.selectedPaciente.rg}" required="true"
-                                 requiredMessage="O RG é obrigatório"/>
-                    <p:message for="inRg"/>
-                    
-                     <h:outputText value="Idade*"/>
-                     <p:inputText id="inIdade" value="#{controladorPaciente.selectedPaciente.idade}" required="true"
+
+                    <h:outputText value="Estado civil*"/>
+                    <p:inputText id="inEstCivil" value="#{controladorPaciente.selectedPaciente.estCivil}" required="true"
+                                 requiredMessage="O estado civil é obrigatório"/>
+                    <p:message for="inEstCivil"/>
+
+                    <h:outputText value="Profissão*"/>
+                    <p:inputText id="inProfissao" value="#{controladorPaciente.selectedPaciente.profissao}" required="true"
+                                 requiredMessage="A profissão é obrigatória"/>
+                    <p:message for="inProfissao"/>
+
+                    <h:outputText value="Idade*"/>
+                    <p:inputText id="inIdade" value="#{controladorPaciente.selectedPaciente.idade}" required="true"
                                  requiredMessage="A idade é obrigatório"/>
                     <p:message for="inIdade"/>
 
@@ -51,8 +51,13 @@
                                  requiredMessage="O telefone é obrigatorio"/>
                     <p:message for="inTelefone"/>
 
-                    <h:outputText value="Número de consultas"/>
-                    <p:inputText value="#{controladorPaciente.selectedPaciente.numConsultas}"/>
+                    <h:outputText value="Gênero*"/>
+                    <p:inputText id="inGenero" value="#{controladorPaciente.selectedPaciente.genero}" required="true"
+                                 requiredMessage="O gênero é obrigatorio"/>
+                    <p:message for="inGenero"/>
+
+                    <h:outputText value="Religião"/>
+                    <p:inputText value="#{controladorPaciente.selectedPaciente.religiao}"/>
                     <h:outputText/>
 
                 </p:panelGrid>
@@ -62,7 +67,7 @@
 
             </p:fieldset>
 
-            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente Alterar o paciente ?"
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente alterar o paciente ?"
                              widgetVar="widDial">
                 <f:facet name="header">
                     Atenção!!!

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -9,20 +9,20 @@
     </h:head>
     <h:body>
         <h:form>
-            <h1>Bem Vindo ao sistema Terapêutico!!!</h1>
-
+            <h1>Bem-vindo ao sistema terapêutico!!!</h1>
             <p:growl id="gro" sticky="false" life="3000"/>
 
             <p:menubar>
                 <p:submenu label="Cadastro">
 
-                    <p:menuitem value="Agenda" outcome="CadastroAgenda.xhtml" />
+                    <p:menuitem value="Prontuario" outcome="CadastroProntuario.xhtml" />
+                    <p:menuitem value="Apresentar Prontuario " outcome="ApresentarProntuario.xhtml" />
+                </p:submenu>
+
+                <p:submenu label="Login">
+                    <p:menuitem value="Psicologa" outcome="LoginTeste.xhtml" />
                     <p:menuitem value="Paciente" outcome="CadastroPaciente.xhtml" />
-                    <p:menuitem value="Anamnese" outcome="CadastroAnamnese.xhtml" />
-                    <p:menuitem value="Psicologa" outcome="CadastroPsicologa.xhtml" />
-                    <p:menuitem value="Apresentar Agenda" outcome="ApresentarAgenda.xhtml" />
-                    <p:menuitem value="Apresentar Paciente" outcome="ApresentarPaciente.xhtml" />
-                    <p:menuitem value="Apresentar Anamnese" outcome="ApresentarAnamnese.xhtml" />
+                    <p:menuitem value="Apresentar Paciente " outcome="ApresentarPaciente.xhtml" />
                     <p:menuitem value="Apresentar Psicologa" outcome="ApresentarPsicologa.xhtml" />
                 </p:submenu>
 

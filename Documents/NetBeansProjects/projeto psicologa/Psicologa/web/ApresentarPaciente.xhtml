@@ -15,15 +15,15 @@
 
         <h:form id="formulario">
             <p:dataTable id="tabela" value="#{controladorPaciente.recuperarTodosPaciente()}" var="item"
-                         paginator="true" rows="5" rowKey="#{item.codigo}" selectionMode="single"
+                         paginator="true" rows="5" rowKey="#{item.matricula}" selectionMode="single"
                          selection="#{controladorPaciente.selectedPaciente}">
                 <f:facet name="header">
                     Paciente Cadastrada !!!
                 </f:facet>
-                <p:column headerText="Código" >
-                    <h:outputText value="#{item.codigo}"/>
+                <p:column headerText="Matrícula" >
+                    <h:outputText value="#{item.matricula}"/>
                 </p:column>
-                <p:column headerText="Nome" filterBy="#{item}">
+                <p:column headerText="Nome" filterBy="#{item.nome}">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column headerText="Endereço">
@@ -33,22 +33,26 @@
                     <h:outputText value="#{item.telefone}"/>
                 </p:column>
 
-                <p:column headerText="CPF" filterBy="#{item}">
-                    <h:outputText value="#{item.cpf}"/>
-                </p:column>
-
-                <p:column headerText="RG" filterBy="#{item}">
-                    <h:outputText value="#{item.rg}"/>
-                </p:column>
-
-
                 <p:column headerText="Idade">
                     <h:outputText value="#{item.idade}"/>
                 </p:column>
 
+                <p:column headerText="Estado civil">
+                    <h:outputText value="#{item.estCivil}"/>
+                </p:column>
 
-                <p:column headerText="Número de consultas">
-                    <h:outputText value="#{item.numConsultas}"/>
+
+                <p:column headerText="Gênero">
+                    <h:outputText value="#{item.genero}"/>
+                </p:column>
+
+
+                <p:column headerText="Profissão">
+                    <h:outputText value="#{item.profissao}"/>
+                </p:column>
+
+                <p:column headerText="Religião">
+                    <h:outputText value="#{item.religiao}"/>
                 </p:column>
 
 
@@ -62,8 +66,8 @@
                       widgetVar="widDial">
                 <p:panelGrid columns="2">
 
-                    <h:outputText value="Código"/>
-                    <h:outputText value="#{controladorPaciente.selectedPaciente.codigo}"/>
+                    <h:outputText value="Matrícula"/>
+                    <h:outputText value="#{controladorPaciente.selectedPaciente.matricula}"/>
 
                     <h:outputText value="Nome"/>
                     <h:outputText value="#{controladorPaciente.selectedPaciente.nome}"/>
@@ -74,24 +78,27 @@
                     <h:outputText value="Telefone"/>
                     <h:outputText value="#{controladorPaciente.selectedPaciente.idade}"/>
 
-                    <h:outputText value="CPF"/>
-                    <h:outputText value="#{controladorPaciente.selectedPaciente.cpf}"/>
+                    <h:outputText value="Estado civil"/>
+                    <h:outputText value="#{controladorPaciente.selectedPaciente.estCivil}"/>
 
-                    <h:outputText value="RG"/>
-                    <h:outputText value="#{controladorPaciente.selectedPaciente.rg}"/>
+                    <h:outputText value="Gênero"/>
+                    <h:outputText value="#{controladorPaciente.selectedPaciente.genero}"/>
 
 
                     <h:outputText value="Idade"/>
                     <h:outputText value="#{controladorPaciente.selectedPaciente.idade}"/>
 
-                    <h:outputText value="Número de consultas"/>
-                    <h:outputText value="#{controladorPaciente.selectedPaciente.numConsultas}"/>
+                    <h:outputText value="Profissão"/>
+                    <h:outputText value="#{controladorPaciente.selectedPaciente.profissao}"/>
+
+                    <h:outputText value="Religião"/>
+                    <h:outputText value="#{controladorPaciente.selectedPaciente.religiao}"/>
 
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
 
-            <p:confirmDialog id="dial2" message="Deseja realmente excluir a Paciente ? "
+            <p:confirmDialog id="dial2" message="Deseja realmente excluir o paciente ? "
                              widgetVar="widDial2">
                 <p:commandButton value="sim" action="#{controladorPaciente.deletar(
                                                        controladorPaciente.selectedPaciente)}"

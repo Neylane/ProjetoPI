@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inicio</title>
+    </h:head>
+    <h:body>
+
+        <h:form id="formulario">
+            <p:growl id="gro" showDetail="true" life="3000" sticky="false"/>
+            <p:fieldset legend="Login">
+                <p:panelGrid columns="2">
+                    <p:commandButton value="Entrar" oncomplete="PF('widDial2').show()"/>
+                    <p:commandButton value="Cadastrar" oncomplete="PF('widCadastro').show()"/>
+
+                </p:panelGrid>
+
+            </p:fieldset>
+
+
+            <p:dialog id="dial2"  visible="false" resizable="false" modal="true" widgetVar="widDial2">
+                <f:facet name="header">
+                    Atenção!!!
+                </f:facet>
+                <p:panelGrid columns="2">
+                    <h:outputText value="Login"></h:outputText>
+                    <p:inputText value="#{controladorPsicologa.selectedPsicologa.login}"/>
+
+                    <h:outputText value="Senha"></h:outputText>
+                    <p:inputText type="password" value="#{controladorPsicologa.selectedPsicologa.senha}"/>
+
+                </p:panelGrid>
+
+                <p:commandButton value="Entrar" action="#{controladorPsicologa.inserir(controladorPsicologa.selectedPsicologa)}"
+                                 update="formulario"/>
+                <p:commandButton value="Cancelar" update="formulario"/>
+
+
+            </p:dialog>
+            <p:dialog id="dialCadastro" resizable="false" visible="false" modal="true" widgetVar="widCadastro">
+                <f:facet name="header">
+
+                    <a href="Login.xhtml"></a>
+                    <p:fieldset legend="Cadastro da psicologa">
+                        <p:panelGrid columns="3">
+                            <p:panel><h:outputText value="Psicologa"/><h:outputText value="*" style="color:red"/></p:panel>
+
+                            <h:outputText value="Código de licença*"/>
+                            <p:inputText id="inCodLicenca" value="#{controladorPsicologa.selectedPsicologa.codLicenca}"
+                                         required="true" requiredMessage="O código de licença é obrigatorio!"/>
+                            <p:message for="inCodLicenca"/>
+
+                            <h:outputText value="CPF*"/>
+                            <p:inputText id="inCpf" value="#{controladorPsicologa.selectedPsicologa.cpf}"
+                                         required="true" requiredMessage="O CPF é obrigatorio!"/>
+                            <p:message for="inCpf"/>
+
+                            <h:outputText value="Nome*"/>
+                            <p:inputText id="inNome" value="#{controladorPsicologa.selectedPsicologa.nome}"
+                                         required="true" requiredMessage="O nome é obrigatorio!"/>
+                            <p:message for="inNome"/>
+
+                            <h:outputText value="Email*"/>
+                            <p:inputText id="inEmail" value="#{controladorPsicologa.selectedPsicologa.email}" 
+                                         required="true" requiredMessage="O Email é obrigatorio!"/>   
+                            <p:message for="inEmail"/>
+
+                            <h:outputText value="Telefone*"/>
+                            <p:inputText id="inTelefone" value="#{controladorPsicologa.selectedPsicologa.telefone}" 
+                                         required="true" requiredMessage="O telefone é obrigatorio!"/>   
+                            <p:message for="inTelefone"/>
+
+                            <h:outputText value=" Login*"/>
+                            <p:inputText id="inLogin" value="#{controladorPsicologa.selectedPsicologa.login}" 
+                                         required="true" requiredMessage="O Login é obrigatorio!"/>                           
+                            <p:message for="inLogin"/>
+
+                            <h:outputText value=" Senha*"/>
+                            <p:inputText id="inSenha" type="password" value="#{controladorPsicologa.selectedPsicologa.senha}" 
+                                         required="true" requiredMessage="A Senha é obrigatoria!"/>
+                            <p:message for="inSenha"/>
+
+                        </p:panelGrid>
+                        <p:commandButton value="cadastrar" 
+                                         oncomplete="PF('widDial').show()"/>
+                    </p:fieldset>
+
+                </f:facet>
+            </p:dialog>
+            <p:dialog resizable="false" id="idDial" widgetVar="widDial" modal="true" 
+                      visible="false">
+                <f:facet name="header">
+                    Deseja realmente cadastrar  a psicologa ?
+                </f:facet>
+
+                <p:commandButton value="sim" action="#{controladorPsicologa.inserir(controladorPsicologa.selectedPsicologa)}"
+                                 oncomplete="PF('widDial').hide()" update="formulario"/>
+                <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
+
+            </p:dialog>
+        </h:form>
+
+    </h:body>
+</html>
+
+
+
+
+

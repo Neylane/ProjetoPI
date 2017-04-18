@@ -5,6 +5,7 @@
  */
 package br.edu.ifpe.model.psicologa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,17 +15,18 @@ import javax.persistence.Table;
  * @author kelly silva
  */
 @Entity
-@Table(name = "Agenda")
-public class Agenda {
+@Table(name = "Prontuario")
+public class Prontuario {
 
     @Id
-    private int codigo;
+    @Column(length = 8)
+    private int numProntuario;
     private String dataConsulta;
     private String horario;
     private String descricao;
 
-    public Agenda(int codigo, String dataConsulta, String horario, String descricao) {
-        this.codigo = codigo;
+    public Prontuario(int numProntuario, String dataConsulta, String horario, String descricao) {
+        this.numProntuario = numProntuario;
         this.dataConsulta = dataConsulta;
         this.horario = horario;
         this.descricao = descricao;
@@ -32,8 +34,7 @@ public class Agenda {
     }
 
     @Deprecated
-    public Agenda() {
-
+    public Prontuario() {
     }
 
     public String getDataConsulta() {
@@ -52,12 +53,12 @@ public class Agenda {
         this.horario = horario;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getNumProntuario() {
+        return numProntuario;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setNumProntuario(int numProntuario) {
+        this.numProntuario = numProntuario;
     }
 
     public String getDescricao() {

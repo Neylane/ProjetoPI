@@ -1,4 +1,4 @@
-
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -12,30 +12,43 @@
         <ui:include src="menu.xhtml"/>
         <h:form id="formulario">
             <p:messages/>
-            <p:fieldset legend="Alterar a pscologa">
+            <p:fieldset legend="Alterar Psicologa(o)">
                 <p:panelGrid columns="3">
-                    <h:outputText value="Código de licença"/>
-                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.codLicenca}"/>
-                    <h:outputText/>
 
                     <p:panel><h:outputText value="CPF"/><h:outputText value="*" style="color:red"/></p:panel>
-                    <p:inputText id="inCpf" value="#{controladorPsicologa.selectedPsicologa.cpf}"
+                    <p:inputText id="inCPF" value="#{controladorPsicologa.selectedPsicologa.cpf}"
                                  required="true" requiredMessage="O CPF é obrigatorio!"/>
-                    <p:message for="inCpf" />
+                    <p:message for="inCPF" />
 
                     <h:outputText value="Nome*"/>
                     <p:inputText id="inNome" value="#{controladorPsicologa.selectedPsicologa.nome}" required="true"
-                                 requiredMessage="O Nome é Obrigatório"/>
+                                 requiredMessage="O nome é obrigatório"/>
                     <p:message for="inNome"/>
 
-                    <h:outputText value="Email"/>
-                    <p:inputText value="#{controladorPsicologa.selectedPsicologa.email}"/>
-                    <h:outputText/>
+                    <h:outputText value="Email*"/>
+                    <p:inputText id="inEmail" value="#{controladorPsicologa.selectedPsicologa.email}" required="true"
+                                 requiredMessage=" O email é obrigatorio"/>
+                    <p:message for="inEmail"/>
 
-                    <h:outputText value="Telefone"/>
-                    <p:inputText value="#{controladorPsicologa.selectedPsicologa.telefone}"/>
-                    <h:outputText/>
+                    <h:outputText value="Telefone*"/>
+                    <p:inputText id="inTelefone" value="#{controladorPsicologa.selectedPsicologa.telefone}" required="true"
+                                 requiredMessage=" O telefone é obrigatorio"/>
+                    <p:message for="inTelefone"/>
 
+                    <h:outputText value="Código de licença*"/>
+                    <p:inputText id="inCodLicenca" value="#{controladorPsicologa.selectedPsicologa.codLicenca}" required="true"
+                                 requiredMessage=" O  código de licença obrigatorio"/>
+                    <p:message for="inCodLicenca"/>
+
+                    <h:outputText value="Login*"/>
+                    <p:inputText id="inLogin" value="#{controladorPsicologa.selectedPsicologa.login}" required="true"
+                                 requiredMessage=" O login é  obrigatorio"/>
+                    <p:message for="inLogin"/>
+
+                    <h:outputText value="Senha*"/>
+                    <p:inputText id="inSenha" value="#{controladorPsicologa.selectedPsicologa.senha}" required="true"
+                                 requiredMessage=" A senha é  obrigatoria"/>
+                    <p:message for="inSenha"/>
 
                 </p:panelGrid>
                 <p:commandButton value="alterar" 
@@ -44,14 +57,14 @@
 
             </p:fieldset>
 
-            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente Alterar a psicologa?"
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente alterar a psicologa(o) ?"
                              widgetVar="widDial">
                 <f:facet name="header">
                     Atenção!!!
                 </f:facet>
-                <p:commandButton value="sim" action="#{controladorPsicologa.alterar(controladorPsicologa.selectedPsicologa)}"
-                                 oncomplete="PF('widDial').hide()" update="formulario"
-                                 />
+                <p:commandButton value="sim" 
+                                 action="#{controladorPsicologa.alterar(controladorPsicologa.selectedPsicologa)}"
+                                 oncomplete="PF('widDial').hide()" update="formulario" />
                 <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>
             </p:confirmDialog>
 

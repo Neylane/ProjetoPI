@@ -23,16 +23,18 @@ public class Psicologa {
     private int telefone;
     private int CodLicenca;
     private String email;
- 
+    private String login;
+    private String senha;
 
     public Psicologa(int CodLicenca, String nome,
-            int telefone, String cpf, String email) {
+            int telefone, String cpf, String email, String login, String senha) {
         this.CodLicenca = CodLicenca;
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
         this.email = email;
-       
+        this.login = login;
+        this.senha = senha;
 
     }
 
@@ -76,9 +78,24 @@ public class Psicologa {
         return telefone;
     }
 
-
     public void setTelefone(int telefone) {
         this.telefone = telefone;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }

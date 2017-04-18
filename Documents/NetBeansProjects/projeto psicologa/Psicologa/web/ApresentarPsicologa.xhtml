@@ -1,4 +1,4 @@
-
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -18,28 +18,36 @@
                          paginator="true" rows="5" rowKey="#{item.codLicenca}" selectionMode="single"
                          selection="#{controladorPsicologa.selectedPsicologa}">
                 <f:facet name="header">
-                    Psicologa Cadastrada !!!
+                    Psicologa(o) Cadastrados !!!
                 </f:facet>
-                <p:column headerText="Codigo de licença" >
+                <p:column >
+                    <f:facet name="header">
+                        Código de licença
+                    </f:facet>
                     <h:outputText value="#{item.codLicenca}"/>
                 </p:column>
-                <p:column headerText="Nome" filterBy="#{item}">
+                <p:column headerText="Nome" filterBy="#{item.nome}">
                     <h:outputText value="#{item.nome}"/>
+                </p:column>
+
+                <p:column headerText="CPF" filterBy="#{item.cpf}">
+                    <h:outputText value="#{item.cpf}"/>
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{item.email}"/>
                 </p:column>
 
                 <p:column headerText="Telefone">
                     <h:outputText value="#{item.telefone}"/>
                 </p:column>
 
-                <p:column headerText="Cpf">
-                    <h:outputText value="#{item.cpf}"/>
+                <p:column headerText="Login">
+                    <h:outputText value="#{item.login}"/>
                 </p:column>
 
-                <p:column headerText="Email">
-                    <h:outputText value="#{item.email}"/>
+                <p:column headerText="Senha">
+                    <h:outputText value="#{item.senha}"/>
                 </p:column>
-
-
 
             </p:dataTable>
             <p:commandButton value="Exibir dados" oncomplete="PF('widDial').show()"
@@ -50,31 +58,33 @@
             <p:dialog id="dial" visible="false" resizable="false" modal="true"
                       widgetVar="widDial">
                 <p:panelGrid columns="2">
-
-                    <h:outputText value="Código de Licença"/>
+                    <h:outputText value="Código de licença"/>
                     <h:outputText value="#{controladorPsicologa.selectedPsicologa.codLicenca}"/>
+
+                    <h:outputText value="CPF"/>
+                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.cpf}"/>
 
                     <h:outputText value="Nome"/>
                     <h:outputText value="#{controladorPsicologa.selectedPsicologa.nome}"/>
 
-                    <h:outputText value="Telefone"/>
-                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.telefone}"/>
-
-                    <h:outputText value="Cpf"/>
-                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.cpf}"/>
-
                     <h:outputText value="Email"/>
                     <h:outputText value="#{controladorPsicologa.selectedPsicologa.email}"/>
 
+                    <h:outputText value="Telefone"/>
+                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.telefone}"/>
 
+                    <h:outputText value="Login"/>
+                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.login}"/>
+
+                    <h:outputText value="Senha"/>
+                    <h:outputText value="#{controladorPsicologa.selectedPsicologa.senha}"/>
                 </p:panelGrid>
                 <p:commandButton value="ok" oncomplete="PF('widDial').hide()"/>
             </p:dialog>
 
-            <p:confirmDialog id="dial2" message="Deseja realmente excluir a Psicologa ? "
+            <p:confirmDialog id="dial2" visible="false" message="Deseja realmente excluir a psicologa(o) ? "
                              widgetVar="widDial2">
-                <p:commandButton value="sim" action="#{controladorPsicologa.deletar(
-                                                       controladorPsicologa.selectedPsicologa)}"
+                <p:commandButton value="sim" action="#{controladorPsicologa.deletar(controladorPsicologa.selectedPsicologa)}"
                                  oncomplete="PF('widDial2').hide()" update="formulario"/>
                 <p:commandButton value="não" oncomplete="PF('widDial2').hide()"/>
             </p:confirmDialog>

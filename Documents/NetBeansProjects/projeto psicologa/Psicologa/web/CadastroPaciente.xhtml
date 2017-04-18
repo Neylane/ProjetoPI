@@ -14,59 +14,58 @@
 
         <h:form id="formulario">
             <p:messages/>
-            <p:fieldset legend="Cadastro do Paciente">
+            <p:fieldset legend="Paciente">
                 <p:panelGrid columns="3">
-                    <p:panel><h:outputText value="Código"/><h:outputText value="*" style="color:red"/></p:panel>
-                    <p:inputText id="inCodigo" value="#{controladorPaciente.selectedPaciente.codigo}"
-                                 required="true" requiredMessage="O código é obrigatório!"/>
-                    <p:message for="inCodigo" />
+
+                    <p:panel><h:outputText value="Matrícula"/><h:outputText value="*" style="color:red"/></p:panel>
+                    <p:inputText id="inMatricula" value="#{controladorPaciente.selectedPaciente.matricula}"
+                                 required="true" requiredMessage="A matrícula é obrigatoria!"/>
+                    <p:message for="inMatricula" />
 
                     <h:outputText value="Nome*"/>
-                    <p:inputText id="inNome" value="#{controladorPaciente.selectedPaciente.nome}" 
-                                 required="true"
+                    <p:inputText id="inNome" value="#{controladorPaciente.selectedPaciente.nome}" required="true"
                                  requiredMessage="O nome é obrigatório"/>
                     <p:message for="inNome"/>
 
+                    <h:outputText value="Estado civil*"/>
+                    <p:inputText id="inEstCivil" value="#{controladorPaciente.selectedPaciente.estCivil}" required="true"
+                                 requiredMessage="O estado civil é obrigatório"/>
+                    <p:message for="inEstCivil"/>
+
+                    <h:outputText value="Profissão*"/>
+                    <p:inputText id="inProfissao" value="#{controladorPaciente.selectedPaciente.profissao}" required="true"
+                                 requiredMessage="A profissão é obrigatória"/>
+                    <p:message for="inProfissao"/>
+
+                    <h:outputText value="Idade*"/>
+                    <p:inputText id="inIdade" value="#{controladorPaciente.selectedPaciente.idade}" required="true"
+                                 requiredMessage="A idade é obrigatório"/>
+                    <p:message for="inIdade"/>
+
                     <h:outputText value="Endereço*"/>
-                    <p:inputText id="inEndereco" value="#{controladorPaciente.selectedPaciente.endereco}" 
-                                 required="true"
+                    <p:inputText id="inEndereco" value="#{controladorPaciente.selectedPaciente.endereco}" required="true"
                                  requiredMessage="O endereço é obrigatório"/>
                     <p:message for="inEndereco"/>
 
                     <h:outputText value="Telefone*"/>
-                    <p:inputText id="inTelefone" value="#{controladorPaciente.selectedPaciente.telefone}" 
-                                 required="true"
-                                 requiredMessage="O telefone é obrigatório"/>
+                    <p:inputText id="inTelefone" value="#{controladorPaciente.selectedPaciente.telefone}" required="true"
+                                 requiredMessage="O telefone é obrigatorio"/>
                     <p:message for="inTelefone"/>
 
-                    <h:outputText value="CPF*"/>
-                    <p:inputText id="inCpf" value="#{controladorPaciente.selectedPaciente.cpf}" 
-                                 required="true"
-                                 requiredMessage="O cpf é obrigatório"/>
-                    <p:message for="inCpf"/>
+                    <h:outputText value="Gênero*"/>
+                    <p:inputText id="inGenero" value="#{controladorPaciente.selectedPaciente.genero}" required="true"
+                                 requiredMessage="O gênero é obrigatorio"/>
+                    <p:message for="inGenero"/>
 
-                    <h:outputText value="RG*"/>
-                    <p:inputText id="inRg" value="#{controladorPaciente.selectedPaciente.rg}" 
-                                 required="true"
-                                 requiredMessage="O rg é obrigatório"/>
-                    <p:message for="inRg"/>
+                    <h:outputText value="Religião"/>
+                    <p:inputText value="#{controladorPaciente.selectedPaciente.religiao}"/>
+                    <h:outputText/>
 
-                    <h:outputText value="Idade*"/>
-                    <p:inputText id="inIdade" value="#{controladorPaciente.selectedPaciente.idade}" 
-                                 required="true"
-                                 requiredMessage="A idade é obrigatória"/>
-                    <p:message for="inIdade"/>
-
-                    <h:outputText value="Número de Consultas*"/>
-                    <p:inputText id="inNumConsultas" value="#{controladorPaciente.selectedPaciente.numConsultas}" 
-                                 required="true"
-                                 requiredMessage="O número de consultas é obrigatório"/>
-                    <p:message for="inNumConsultas"/>
                 </p:panelGrid>
                 <p:commandButton value="cadastrar" 
                                  oncomplete="PF('widDial').show()"/>
             </p:fieldset>
-            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente cadastrar a paciente?"
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente cadastrar o paciente?"
                              widgetVar="widDial">
                 <f:facet name="header">
                     Atenção!!!

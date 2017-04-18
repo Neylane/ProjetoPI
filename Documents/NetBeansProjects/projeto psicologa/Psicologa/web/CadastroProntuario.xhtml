@@ -14,25 +14,25 @@
 
         <h:form id="formulario">
             <p:messages/>
-            <p:fieldset legend="Cadastro da agenda">
+            <p:fieldset legend="Protuario">
                 <p:panelGrid columns="3">
-                    <p:panel><h:outputText value="Código"/><h:outputText value="*" style="color:red"/></p:panel>
-                    <p:inputText id="inCodigo" value="#{controladorAgenda.selectedAgenda.codigo}"
-                                 required="true" requiredMessage="O código é obrigatorio!"/>
-                    <p:message for="inCodigo" />
+                    <p:panel><h:outputText value=" Número do Prontuario"/><h:outputText value="*" style="color:red"/></p:panel>
+                    <p:inputText id="inNumProntuario" value="#{controladorProntuario.selectedProntuario.numProntuario}"
+                                 required="true" requiredMessage="O número do prontuario é obrigatorio!"/>
+                    <p:message for="inNumProntuario" />
 
                     <h:outputText value="Data da consulta*"/>
-                    <p:inputText id="inDataConsulta" value="#{controladorAgenda.selectedAgenda.dataConsulta}" required="true"
+                    <p:inputText id="inDataConsulta" value="#{controladorProntuario.selectedProntuario.dataConsulta}" required="true"
                                  requiredMessage="A data da consulta é obrigatório"/>
                     <p:message for="inDataConsulta"/>
 
                     <h:outputText value="Descrição*"/>
-                    <p:inputText id="inDescricao" value="#{controladorAgenda.selectedAgenda.descricao}" required="true"
+                    <p:inputText id="inDescricao" value="#{controladorProntuario.selectedProntuario.descricao}" required="true"
                                  requiredMessage="A descrição  é obrigatoria"/>
                     <p:message for="inDescricao"/>
 
                     <h:outputText value="Horário*"/>
-                    <p:inputText id="inHorario" value="#{controladorAgenda.selectedAgenda.horario}" required="true"
+                    <p:inputText id="inHorario" value="#{controladorProntuario.selectedProntuario.horario}" required="true"
                                  requiredMessage="O horário é obrigatorio"/>
                     <p:message for="inHorario"/>
 
@@ -40,12 +40,12 @@
                 <p:commandButton value="cadastrar" 
                                  oncomplete="PF('widDial').show()"/>
             </p:fieldset>
-            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente cadastrar a agenda?"
+            <p:confirmDialog id="idDial" visible="false" message="Deseja realmente cadastrar o prontuario ?"
                              widgetVar="widDial">
                 <f:facet name="header">
                     Atenção!!!
                 </f:facet>
-                <p:commandButton value="sim" action="#{controladorAgenda.inserir(controladorAgenda.selectedAgenda)}"
+                <p:commandButton value="sim" action="#{controladorProntuario.inserir(controladorProntuario.selectedProntuario)}"
                                  oncomplete="PF('widDial').hide()" update="formulario"
                                  />
                 <p:commandButton value="não" oncomplete="PF('widDial').hide()"/>

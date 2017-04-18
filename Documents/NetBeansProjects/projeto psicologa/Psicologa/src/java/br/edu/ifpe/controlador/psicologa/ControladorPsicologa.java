@@ -43,7 +43,7 @@ public class ControladorPsicologa {
 
         this.repositorioPsicologaDB.inserir(psicologa);
 
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Parabéns, Psicologa(o) Cadastrado com sucesso"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Parabéns, psicologa(o) cadastrado com sucesso"));
 
         return "index.xhtml";
     }
@@ -53,8 +53,8 @@ public class ControladorPsicologa {
             this.repositorioPsicologaDB.alterar(psicologa);
 
             FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("A Psicologa(o)" + psicologa.getNome() + " foi "
-                            + "Alterado com sucesso!"));
+                    new FacesMessage("A psicologa(o)" + psicologa.getNome() + " foi "
+                            + "alterado com sucesso!"));
 
             return "ApresentarPsicologa.xhtml";
 
@@ -86,6 +86,10 @@ public class ControladorPsicologa {
 
     public void setSelectedPsicologa(Psicologa selectedPsicologa) {
         this.selectedPsicologa = selectedPsicologa;
+    }
+
+    Psicologa recuperar(String login, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -6,7 +6,7 @@
 package br.edu.ifpe.repositorio.psicologa;
 
 import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
-import br.edu.ifpe.model.psicologa.Agenda;
+import br.edu.ifpe.model.psicologa.Prontuario;
 import br.edu.ifpe.repositorio.interfaces.psicologa.RepositorioGenerico;
 import java.util.List;
 
@@ -14,37 +14,37 @@ import java.util.List;
  *
  * @author kelly silva
  */
-public class RepositorioAgendaDB implements RepositorioGenerico<Agenda, Integer> {
+public class RepositorioProntuarioDB implements RepositorioGenerico<Prontuario, Integer> {
 
     @Override
-    public void inserir(Agenda t) {
+    public void inserir(Prontuario t) {
         DaoManagerHiber.getInstance().persist(t);
     }
 
     @Override
-    public void alterar(Agenda t) throws Exception {
+    public void alterar(Prontuario t) throws Exception {
         DaoManagerHiber.getInstance().update(t);
     }
 
     @Override
-    public Agenda recuperar(Integer chave) {
+    public Prontuario recuperar(Integer chave) {
         try {
-            return (Agenda) DaoManagerHiber.getInstance().recover("from Agenda where id = " + chave).get(0);
+            return (Prontuario) DaoManagerHiber.getInstance().recover("from Prontuario where id = " + chave).get(0);
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
     }
 
     @Override
-    public void deletar(Agenda t) {
+    public void deletar(Prontuario t) {
 
         DaoManagerHiber.getInstance().delete(t);
     }
 
     @Override
-    public List<Agenda> recuperarTodos() {
+    public List<Prontuario> recuperarTodos() {
 
-        return DaoManagerHiber.getInstance().recover("from Agenda");
+        return DaoManagerHiber.getInstance().recover("from Prontuario");
     }
 
 }

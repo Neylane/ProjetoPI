@@ -9,8 +9,6 @@ import br.edu.ifpe.edu.cadastro.dao.DaoManagerHiber;
 import br.edu.ifpe.model.psicologa.Psicologa;
 import br.edu.ifpe.repositorio.interfaces.psicologa.RepositorioGenerico;
 
-
-
 import java.util.List;
 
 /**

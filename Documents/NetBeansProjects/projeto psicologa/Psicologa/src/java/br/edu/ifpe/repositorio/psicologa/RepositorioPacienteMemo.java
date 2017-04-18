@@ -8,8 +8,6 @@ package br.edu.ifpe.repositorio.psicologa;
 import br.edu.ifpe.model.psicologa.Paciente;
 import br.edu.ifpe.repositorio.interfaces.psicologa.RepositorioGenerico;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,29 +26,32 @@ public class RepositorioPacienteMemo implements RepositorioGenerico<Paciente, In
 
     @Override
     public void alterar(Paciente t) throws Exception {
-        Paciente pc = null;
+        Paciente p = null;
         for (int i = 0; i < this.ControladorPaciente.size(); i++) {
-            pc = this.ControladorPaciente.get(i);
-            if (pc.getCpf().equals(t.getCpf())) {
-                pc.setNome(t.getNome());
-                pc.setEndereco(t.getEndereco());
-                pc.setTelefone(t.getTelefone());
-                pc.setIdade(t.getIdade());
-                pc.setRg(t.getRg());
-                pc.setNumConsultas(t.getNumConsultas());
+            p = this.ControladorPaciente.get(i);
+            if (p.getNome().equals(t.getNome())) {
+                p.setMatricula(t.getMatricula());
+                p.setEndereco(t.getEndereco());
+                p.setIdade(t.getIdade());
+                p.setGenero(t.getGenero());
+                p.setEstCivil(t.getEstCivil());
+                p.setProfissao(t.getProfissao());
+                p.setTelefone(t.getTelefone());
+                p.setReligiao(t.getReligiao());
 
                 return;
+
             }
         }
     }
 
     @Override
     public Paciente recuperar(Integer chave) {
-        Paciente pc = null;
+        Paciente p = null;
         for (int i = 0; i < this.ControladorPaciente.size(); i++) {
-            pc = this.ControladorPaciente.get(i);
-            if (pc.getRg() == chave) {
-                return pc;
+            p = this.ControladorPaciente.get(i);
+            if (p.getMatricula() == chave) {
+                return p;
             }
         }
         return null;

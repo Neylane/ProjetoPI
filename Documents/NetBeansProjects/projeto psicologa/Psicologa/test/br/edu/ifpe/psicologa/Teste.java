@@ -5,7 +5,6 @@
  */
 package br.edu.ifpe.psicologa;
 
-
 import br.edu.ifpe.Hibernate.util.psicologa.HibernateUtil;
 import br.edu.ifpe.model.psicologa.Psicologa;
 import javax.swing.JOptionPane;
@@ -22,21 +21,15 @@ public class Teste {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction t = session.beginTransaction();
         Psicologa psicologa = new Psicologa();
-      
-            psicologa.setCodLicenca(Integer.parseInt(JOptionPane.showInputDialog("digite o código de licença")));
-            psicologa.setNome(JOptionPane.showInputDialog("digite seu nome:"));
-            psicologa.setEmail(JOptionPane.showInputDialog("digite seu email:"));
-            psicologa.setCpf(JOptionPane.showInputDialog("digite a cpf:"));
-            psicologa.setTelefone(Integer.parseInt(JOptionPane.showInputDialog("digite seu telefone")));
-            
-            
-            session.save(psicologa);
-             t.commit();
-        }
 
+        psicologa.setCodLicenca(Integer.parseInt(JOptionPane.showInputDialog("digite o código de licença")));
+        psicologa.setNome(JOptionPane.showInputDialog("digite seu nome:"));
+        psicologa.setEmail(JOptionPane.showInputDialog("digite seu email:"));
+        psicologa.setCpf(JOptionPane.showInputDialog("digite a cpf:"));
+        psicologa.setTelefone(Integer.parseInt(JOptionPane.showInputDialog("digite seu telefone")));
+
+        session.save(psicologa);
+        t.commit();
     }
 
- 
-    
-
-
+}
