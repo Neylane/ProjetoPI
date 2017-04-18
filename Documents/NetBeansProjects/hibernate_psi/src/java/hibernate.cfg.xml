@@ -1,0 +1,20 @@
+
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_psi?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">12345</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.jdbc.batch_versioned_data">true</property>
+    <property name="hibernate.jdbc.use_scrollable_resultset">true</property>
+    <property name="hibernate.jdbc.use_streams_for_binary">true</property>
+    <property name="hibernate.connection.autocommit">true</property>
+    <mapping class="br.edu.ifpe.psicologa.model.psicologa"/>
+  </session-factory>
+</hibernate-configuration>
