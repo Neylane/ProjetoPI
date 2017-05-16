@@ -20,7 +20,7 @@ public class Teste {
              // PsicologaDao psi= new PsicologaDao(); 
               JDBCPsicologa psi = JDBCPsicologa.getInstance();
               PsicologaCrud psicologa;
-        psicologa = new PsicologaCrud(123, "Marta", "555445544", 4555555, "marta@hotmail.com");
+        psicologa = new PsicologaCrud(555, "Liana Xav", "15454444", 222222, "lianaxav444@gmail.com");
         //são as informações que mostra na table psicologa crud onde pode inserir alterar, deletar, atualizar.
                                   //códLicença: 123
                                   //nome: kelly
